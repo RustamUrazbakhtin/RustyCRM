@@ -1,0 +1,6 @@
+@RustyCRM.Server_HostAddress = http://localhost:5073
+
+GET {{RustyCRM.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

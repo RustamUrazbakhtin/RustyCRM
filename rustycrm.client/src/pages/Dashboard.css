@@ -1,0 +1,201 @@
+/* Контейнер */
+.dashboard-wrap {
+    background: #f7f8fb;
+    min-height: 100vh;
+}
+
+.dashboard {
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    grid-template-columns: 1fr 320px; /* контент + правая колонка */
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "kpi side"
+        "main side";
+}
+
+/* Карточки */
+.card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #eef0f3;
+    box-shadow: 0 6px 20px rgba(16,24,40,.06);
+}
+
+/* KPI row */
+.kpi-row {
+    grid-area: kpi;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.kpi {
+    padding: 16px;
+}
+
+.kpi-label {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.kpi-value {
+    font-weight: 800;
+    font-size: 26px;
+    margin-top: 2px;
+    color: #0f172a;
+}
+
+.kpi-sub {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 6px;
+}
+
+/* Main widget */
+.main-card {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eef0f3;
+}
+
+.tabs {
+    display: inline-flex;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 12px;
+}
+
+.tab {
+    border: 0;
+    background: transparent;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+}
+
+    .tab.active {
+        background: #fff;
+        color: #111827;
+        box-shadow: 0 4px 10px rgba(0,0,0,.08);
+    }
+
+.main-body {
+    padding: 12px;
+}
+
+/* Side column */
+.side-col {
+    grid-area: side;
+    display: grid;
+    gap: 16px;
+    grid-auto-rows: min-content;
+}
+
+.mini {
+    padding: 12px;
+}
+
+.card-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.card-body {
+    font-size: 14px;
+    color: #1f2937;
+}
+
+.list {
+    padding-left: 18px;
+    margin: 0;
+}
+
+    .list li {
+        margin: 6px 0;
+    }
+
+/* Analytics demo */
+.analytics .title {
+    font-weight: 800;
+    font-size: 18px;
+    color: #0f172a;
+}
+
+.analytics-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.analytics .muted {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.pill {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.spark {
+    color: #2563eb;
+    display: block;
+    margin: 6px auto 0;
+    max-width: 100%;
+    height: auto;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+    .legend .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #2563eb;
+    }
+
+/* Адаптив */
+@media (max-width: 1100px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        grid-template-areas: "kpi" "main" "side";
+    }
+
+    .side-col {
+        grid-auto-rows: auto;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .kpi-row {
+        grid-template-columns: 1fr;
+    }
+
+    .side-col {
+        grid-template-columns: 1fr;
+    }
+}
